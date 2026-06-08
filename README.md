@@ -1,12 +1,5 @@
 # DLMDSPWP01 Programming with Python Project
 
-## Author
-
-**Student:** Arijeet Paramanik
-
-**Module:** DLMDSPWP01 – Programming with Python
-
----
 
 ## Overview
 
@@ -211,53 +204,6 @@ output/
 ```
 
 To view the visualizations, open the generated HTML files in a web browser.
-
----
-
-## Example Execution
-
-```text
-[INFO] Loading data/train.csv
-[INFO] Loading data/ideal.csv
-[INFO] Loading data/test.csv
-
-[INFO] Saving table training_data
-[INFO] Saving table ideal_functions
-
-[INFO] y1 -> y13 (max deviation: 0.4992)
-[INFO] y2 -> y24 (max deviation: 0.4990)
-[INFO] y3 -> y36 (max deviation: 0.4989)
-[INFO] y4 -> y40 (max deviation: 0.4998)
-
-Selected Functions:
-{'y1': 'y13', 'y2': 'y24', 'y3': 'y36', 'y4': 'y40'}
-
-[INFO] Training plot created
-[INFO] Ideal function plot created
-[INFO] Mapping plot created
-
-Mapped points: 34
-
-Workflow completed successfully.
-```
-
----
-
-## Running Unit Tests
-
-Execute:
-
-```bash
-python -m pytest
-```
-
-Example test execution:
-
-```text
-==========================
-3 passed in 0.63s
-==========================
-```
 
 ---
 
