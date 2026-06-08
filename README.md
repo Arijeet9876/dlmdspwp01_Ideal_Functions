@@ -2,8 +2,11 @@
 
 ## Author
 
-Arijeet Paramanik
-DLMDSPWP01 – Programming with Python
+**Student:** Arijeet Paramanik
+
+**Module:** DLMDSPWP01 – Programming with Python
+
+---
 
 ## Overview
 
@@ -22,6 +25,11 @@ DLMDSPWP01_PROJECT
 │   ├── train.csv
 │   ├── ideal.csv
 │   └── test.csv
+│
+├── docs
+│   ├── training_plot.png
+│   ├── ideal_functions_plot.png
+│   └── mapping_plot.png
 │
 ├── output
 │   ├── plots
@@ -104,9 +112,7 @@ The ideal function with the smallest sum of squared errors is selected.
 
 ### 3. Test Data Mapping
 
-Each test observation is assigned to the selected ideal function when:
-
-* The deviation is smaller than or equal to the maximum deviation observed during training multiplied by √2.
+Each test observation is assigned to the selected ideal function when the deviation is smaller than or equal to the maximum deviation observed during training multiplied by √2.
 
 ### 4. Database Storage
 
@@ -130,7 +136,7 @@ The project generates three interactive Bokeh visualizations:
 
 ## Results
 
-Selected ideal functions:
+### Selected Ideal Functions
 
 | Training Function | Ideal Function |
 | ----------------- | -------------- |
@@ -139,7 +145,7 @@ Selected ideal functions:
 | y3                | y36            |
 | y4                | y40            |
 
-Maximum deviations:
+### Maximum Deviations
 
 | Function | Maximum Deviation |
 | -------- | ----------------- |
@@ -148,7 +154,7 @@ Maximum deviations:
 | y3       | 0.4989            |
 | y4       | 0.4998            |
 
-Mapping results:
+### Mapping Results
 
 * Total test points: 100
 * Successfully mapped points: 34
@@ -156,12 +162,83 @@ Mapping results:
 
 ---
 
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Arijeet9876/dlmdspwp01_Ideal_Functions.git
+cd dlmdspwp01_Ideal_Functions
+```
+
+Install required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
 ## Running the Project
 
-Execute the workflow:
+Execute the complete workflow:
 
 ```bash
 python -m src.main
+```
+
+---
+
+## Generated Outputs
+
+Running the command above automatically:
+
+1. Loads the training, ideal, and test datasets.
+2. Selects the four best ideal functions using the least-squares criterion.
+3. Maps the test observations according to the assignment rules.
+4. Stores the results in a SQLite database.
+5. Generates three interactive Bokeh visualizations.
+
+Generated files:
+
+```text
+output/
+├── results.db
+└── plots/
+    ├── training_data.html
+    ├── selected_ideal_functions.html
+    └── test_mapping_results.html
+```
+
+To view the visualizations, open the generated HTML files in a web browser.
+
+---
+
+## Example Execution
+
+```text
+[INFO] Loading data/train.csv
+[INFO] Loading data/ideal.csv
+[INFO] Loading data/test.csv
+
+[INFO] Saving table training_data
+[INFO] Saving table ideal_functions
+
+[INFO] y1 -> y13 (max deviation: 0.4992)
+[INFO] y2 -> y24 (max deviation: 0.4990)
+[INFO] y3 -> y36 (max deviation: 0.4989)
+[INFO] y4 -> y40 (max deviation: 0.4998)
+
+Selected Functions:
+{'y1': 'y13', 'y2': 'y24', 'y3': 'y36', 'y4': 'y40'}
+
+[INFO] Training plot created
+[INFO] Ideal function plot created
+[INFO] Mapping plot created
+
+Mapped points: 34
+
+Workflow completed successfully.
 ```
 
 ---
@@ -174,11 +251,29 @@ Execute:
 python -m pytest
 ```
 
-Expected result:
+Example test execution:
 
 ```text
-3 passed
+==========================
+3 passed in 0.63s
+==========================
 ```
+
+---
+
+## Visualizations
+
+### Training Data
+
+open output/plots/training_data.html       
+
+### Selected Ideal Functions
+
+open output/plots/selected_ideal_functions.html   
+
+### Mapping Results
+
+open output/plots/test_mapping_results.html       
 
 ---
 
@@ -190,6 +285,8 @@ The project implements custom exceptions:
 * DatabaseError
 * FunctionSelectionError
 * MappingError
+
+These exceptions provide structured error handling throughout the application.
 
 ---
 
